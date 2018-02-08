@@ -1,13 +1,18 @@
 a = open('shipping.in')
 b = a.readlines()
-l = int(b[0].strip())
+l = len(b)
 x = 0
-n = []
 u = 1
-f = int(b[1])
-while x < l:
-    t = int(b[u])
-    for i in range(u+1,t+2):
-        n.append(b[i].strip())
-    x += 1
-print(n)
+for x in range(0,int(b[0])):
+    n = []
+    total = 0
+    t = int(b[u].strip())
+    u += 1
+    for i in range(0,t):
+        n.append(b[u])
+        u += 1
+    for items in n:
+        k = int(items.split()[1])
+        q = float(items.split()[2])
+        total += k*q
+    print(total)
